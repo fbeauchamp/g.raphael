@@ -56,12 +56,14 @@ Raphael.fn.g.dotchart = function (x, y, width, height, valuesx, valuesy, size, o
         res.axis = axis;
     }
     var kx = (width - gutter * 2) / ((maxx - minx) || 1),
-        ky = (height - gutter * 2) / ((maxy - miny) || 1);
+        ky = (height - gutter * 2) / ((maxy - miny) || 1),
+        fill ;
     for (var i = 0, ii = valuesy.length; i < ii; i++) {
         var sym = this.raphael.is(symbol, "array") ? symbol[i] : symbol,
             X = x + gutter + (valuesx[i] - minx) * kx,
             Y = y + height - gutter - (valuesy[i] - miny) * ky;
-        sym && R[i] && series.push(this.g[sym](X, Y, R[i]).attr({fill: opts.heat ? this.g.colorValue(R[i], maxR) : Raphael.fn.g.colors[0], "fill-opacity": opts.opacity ? R[i] / max : 1, stroke: "none"}));
+            fill = opts.fills && opts.fills[i] ? opts.fills[i] : opts.heat ? this.g.colorValue(R[i], maxR) : Raphael.fn.g.colors[0];
+        sym && R[i] && series.push(this.g[sym](X, Y, R[i]).attr({fill: color, "fill-opacity": opts.opacity ? R[i] / max : 1, stroke: "none"}));
     }
     var covers = this.set();
     for (var i = 0, ii = valuesy.length; i < ii; i++) {
