@@ -1,5 +1,5 @@
 /*!
- * g.Raphael 0.4.1 - Charting library, based on Raphaël
+ * g.Raphael 0.4.1 - Charting library, based on Rapha√´l
  *
  * Copyright (c) 2009 Dmitry Baranovskiy (http://g.raphaeljs.com)
  * Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license.
@@ -63,7 +63,7 @@ Raphael.fn.g.dotchart = function (x, y, width, height, valuesx, valuesy, size, o
             X = x + gutter + (valuesx[i] - minx) * kx,
             Y = y + height - gutter - (valuesy[i] - miny) * ky;
             fill = opts.fills && opts.fills[i] ? opts.fills[i] : opts.heat ? this.g.colorValue(R[i], maxR) : Raphael.fn.g.colors[0];
-        sym && R[i] && series.push(this.g[sym](X, Y, R[i]).attr({fill: color, "fill-opacity": opts.opacity ? R[i] / max : 1, stroke: "none"}));
+        sym && R[i] && series.push(this.g[sym](X, Y, R[i]).attr({fill: fill, "fill-opacity": opts.opacity ? R[i] / max : 1, stroke: "none"}));
     }
     var covers = this.set();
     for (var i = 0, ii = valuesy.length; i < ii; i++) {
